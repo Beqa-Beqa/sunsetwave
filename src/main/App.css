@@ -1,0 +1,9 @@
+body {
+	width: 100vw;
+	min-height: 100vh;
+	background-image: url("../assets/Retrowave-beach-and-palms.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    backdrop-filter: brightness(60%);
+}
