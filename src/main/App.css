@@ -1,9 +1,37 @@
+* {
+   	/* For Firefox and other non-WebKit browsers */
+	scrollbar-width: thin;
+	scrollbar-color: #ff79c6 #282a36; /* Thumb color and track color */ 
+}
+
 body {
-	width: 100vw;
+	width: 100%;
 	min-height: 100vh;
-	background-image: url("../assets/Retrowave-beach-and-palms.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    backdrop-filter: brightness(60%);
+}
+
+.scroll-disable {
+	height: 100%;
+	overflow: hidden;
+}
+
+/* Apply the retrowave style to the scrollbar */
+::-webkit-scrollbar {
+	width: 10px; /* Width of the scrollbar */
+}
+
+::-webkit-scrollbar-track {
+	background: #282a36; /* Dark background color for the track */
+}
+
+::-webkit-scrollbar-thumb {
+	background: #ff79c6; /* Neon pink color for the thumb */
+	border-radius: 10px; /* Rounded corners */
+	box-shadow: 0 0 10px #ff79c6, 0 0 20px #ff79c6, 0 0 40px #ff79c6,
+		0 0 80px #ff79c6; /* Neon glow effect */
+}
+
+::-webkit-scrollbar-thumb:hover {
+	background: #ff55aa; /* Darker neon pink on hover */
+	box-shadow: 0 0 15px #ff55aa, 0 0 30px #ff55aa, 0 0 60px #ff55aa,
+		0 0 120px #ff55aa; /* Enhanced glow on hover */
 }
