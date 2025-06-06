@@ -3,6 +3,7 @@ import LogoVice from "../../assets/logo-vice.png";
 import { LuTreePalm } from "react-icons/lu";
 import OffcanvasMenu from "../offcanvasMenu/OffcanvasMenu";
 import { throttle } from "lodash";
+import { GlitchingButton } from "../../components";
 
 const SCROLL_THROTTLE_MS = 200;
 
@@ -15,8 +16,7 @@ export default function Navbar() {
 			let prevPageYOffset = 0;
 
 			return () => {
-				if (window.pageYOffset > prevPageYOffset)
-					setToggleNavbar(false);
+				if (window.pageYOffset > prevPageYOffset) setToggleNavbar(false);
 				else setToggleNavbar(true);
 				prevPageYOffset = window.pageYOffset;
 			};
@@ -51,9 +51,17 @@ export default function Navbar() {
 						alt="Retrowave logo"
 					/>
 				</div>
-				<div className="h-full w-[25px]">
+
+				<div className="hidden lg:flex gap-4">
+					<GlitchingButton borderless className="lg:w-[100px] lg:h-[40px] lg:text-md" onClick={() => {}} text="Home"/>
+					<GlitchingButton borderless className="lg:w-[100px] lg:h-[40px] lg:text-md" onClick={() => {}} text="Menu"/>
+					<GlitchingButton borderless className="lg:w-[100px] lg:h-[40px] lg:text-md" onClick={() => {}} text="Gallery"/>
+					<GlitchingButton borderless className="lg:w-[100px] lg:h-[40px] lg:text-md" onClick={() => {}} text="Legacy"/>
+				</div>
+
+				<div className="lg:hidden h-full w-fit flex items-center">
 					<button
-						className="w-full h-full"
+						className="w-full h-full md:w-[40px] md:h-[40px]"
 						type="button"
 						onClick={() => setToggleMenu(true)}
 					>

@@ -1,13 +1,8 @@
 .button-glitch,
 .button-glitch::after {
- padding: 16px 20px;
- font-size: 18px;
- background: linear-gradient(45deg, transparent 5%, var(--primary-color) 5%);
  border: 0;
- color: #fff;
  letter-spacing: 3px;
  line-height: 1;
- box-shadow: 6px 0px 0px #00e6f6;
  outline: transparent;
  position: relative;
 }
