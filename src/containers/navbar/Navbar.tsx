@@ -4,6 +4,8 @@ import { LuTreePalm } from "react-icons/lu";
 import OffcanvasMenu from "../offcanvasMenu/OffcanvasMenu";
 import { throttle } from "lodash";
 import { GlitchingButton } from "../../components";
+import { Link } from "react-router-dom";
+import { ROUTES } from "../../enums/routes";
 
 const SCROLL_THROTTLE_MS = 200;
 
@@ -13,12 +15,13 @@ export default function Navbar() {
 
 	useEffect(() => {
 		let navbarToggleHandler = (() => {
-			let prevPageYOffset = 0;
+			let prevScrollY = 0;
 
 			return () => {
-				if (window.pageYOffset > prevPageYOffset) setToggleNavbar(false);
+				if (window.scrollY > prevScrollY)
+					setToggleNavbar(false);
 				else setToggleNavbar(true);
-				prevPageYOffset = window.pageYOffset;
+				prevScrollY = window.scrollY;
 			};
 		})();
 
@@ -52,22 +55,54 @@ export default function Navbar() {
 					/>
 				</div>
 
-				<div className="hidden lg:flex gap-4">
-					<GlitchingButton borderless className="lg:w-[100px] lg:h-[40px] lg:text-md" onClick={() => {}} text="Home"/>
-					<GlitchingButton borderless className="lg:w-[100px] lg:h-[40px] lg:text-md" onClick={() => {}} text="Menu"/>
-					<GlitchingButton borderless className="lg:w-[100px] lg:h-[40px] lg:text-md" onClick={() => {}} text="Gallery"/>
-					<GlitchingButton borderless className="lg:w-[100px] lg:h-[40px] lg:text-md" onClick={() => {}} text="Legacy"/>
+				<div className="hidden lg:flex gap-10">
+					<Link to={ROUTES.HOME}>
+						<GlitchingButton
+							borderless
+							className="lg:h-[40px] lg:text-md"
+							text="Home"
+						/>
+					</Link>
+					<Link to={ROUTES.MENU}>
+						<GlitchingButton
+							borderless
+							className="lg:h-[40px] lg:text-md"
+							text="Menu"
+						/>
+					</Link>
+					<Link to={ROUTES.GALLERY}>
+						<GlitchingButton
+							borderless
+							className="lg:h-[40px] lg:text-md"
+							text="Gallery"
+						/>
+					</Link>
+					<Link to={ROUTES.LEGACY}>
+						<GlitchingButton
+							borderless
+							className="lg:h-[40px] lg:text-md"
+							text="Legacy"
+						/>
+					</Link>
+					<Link to={ROUTES.LEADERBOARD}>
+						<GlitchingButton
+							borderless
+							className="lg:h-[40px] lg:text-md"
+							text="Leaderboard"
+						/>
+					</Link>
 				</div>
 
-				<div className="lg:hidden h-full w-fit flex items-center">
-					<button
-						className="w-full h-full md:w-[40px] md:h-[40px]"
-						type="button"
-						onClick={() => setToggleMenu(true)}
-					>
+				<button
+					onClick={() => setToggleMenu(true)}
+					type="button"
+					className="lg:hidden h-full w-fit flex items-center gap-2"
+				>
+					<span className="text-primary-color">Menu</span>
+					<span className="w-[25px] h-[25px] md:w-[40px] md:h-[40px]">
 						<LuTreePalm className="cursor-pointer text-primary-color w-full h-full" />
-					</button>
-				</div>
+					</span>
+				</button>
 			</nav>
 			<OffcanvasMenu
 				toggleMenu={toggleMenu}

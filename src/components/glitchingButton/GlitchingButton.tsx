@@ -2,7 +2,7 @@ import "./GlitchingButton.css";
 
 type GlitchingButtonProps = {
 	text: string;
-	onClick: () => void;
+	onClick?: () => void;
 	className?: string;
 	borderless?: boolean;
 };
@@ -17,7 +17,7 @@ export default function GlitchingButton(props: GlitchingButtonProps) {
 					? "linear-gradient(45deg, transparent 5%, var(--primary-color) 5%)"
 					: undefined,
 			}}
-			onClick={onClick}
+			onClick={onClick && onClick}
 			className={`${className && className} ${
 				!borderless &&
 				"bg-[linear-gradient(45deg, transparent 5%, var(--primary-color) 5%)] text-white shadow-[6px_0px_0px_#00e6f6]"
